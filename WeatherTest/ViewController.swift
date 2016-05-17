@@ -47,7 +47,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             updateWeatherInfo(location.coordinate.latitude, longitude:location.coordinate.longitude)
             
-            //locationManager.stopUpdatingLocation()
+            locationManager.stopUpdatingLocation()
         }
         
     }
