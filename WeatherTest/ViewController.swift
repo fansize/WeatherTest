@@ -9,14 +9,20 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+var todos: [TodoModel] = []
+
+class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource {
 
     let locationManager:CLLocationManager = CLLocationManager()
     
     @IBOutlet weak var didian: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var wendu: UILabel!
+   
+    //显示tableview需要：1、绑定tableview到controller 2、继承UITableViewDataSource协议 3、绑定tableview到datasource
+    @IBOutlet weak var tabelView: UITableView!
 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +34,48 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest  //位置信息调用更精准
         locationManager.startUpdatingLocation()
         locationManager.requestAlwaysAuthorization()  //很关键的一句，有了它才提示是否允许设备定位，之前一直无法拉起位置服务；原因暂未知
+        todos = [TodoModel(id: "1", image: "cloudy1_night.png", text: "1、去游乐场", date:    dateFromString("2016-11-21")!),
+                 TodoModel(id: "1", image: "cloudy1.png", text: "1、去玩", date: dateFromString("2016-11-21")!),
+                 TodoModel(id: "1", image: "cloudy2_night.png", text: "1、去打电话", date: dateFromString("2016-11-21")!),
+                 TodoModel(id: "1", image: "cloudy2.png", text: "1、去游泳", date: dateFromString("2016-11-21")!)]
         
+        print(todos)
+    }
+    
+    
+    //继承UITableViewDataSource协议必须实现的两个方法
+    //dequeueReusableCellWithIdentifier("35")，使用可重用的cell，其中参数str为重用cell的id，在storyboard中查看即可
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        //**返回到cell列数必须要与创建内容库应该有的列数一致，否则报错 PS：理解上应该是可能会有空行
+        return todos.count;
+    }
+    
+    
+    //cell里内容的更新主要就在这个方法里完成，应该是每新创建一个cell就会回调一次这个方法
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.tabelView.dequeueReusableCellWithIdentifier("cell1")! as UITableViewCell
+        //print(todos.count)
+        let todo = todos[indexPath.row] as TodoModel
+        
+        let city = cell.viewWithTag(101) as! UILabel
+        let image = cell.viewWithTag(102) as! UIImageView
+        city.text = todo.text
+        image.image = UIImage(named: todo.image)
+        
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func dateFromString(dateStr: String) -> NSDate? {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-mm-dd"
+        let date = formatter.dateFromString(dateStr)
+        return date
     }
     
     //当获取位置信息时，CLLocationManagerDelegate调用的回调函数
@@ -151,9 +193,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func button(sender: AnyObject) {
         
         print("地址改变")
-        locationManager.startUpdatingLocation()
+        //tabelviewcell.text = "Hello"
+        //locationManager.startUpdatingLocation()
+        //var cl = CityList(name: "NewYork")
+        //cl.init("New York")
+      
     }
- 
 
+//    @IBOutlet weak var tabel: UITableViewCell!
+//    @IBOutlet weak var tabelview: UIView!
+//    @IBOutlet weak var tabelviewcell: UILabel!
+    
 }
 

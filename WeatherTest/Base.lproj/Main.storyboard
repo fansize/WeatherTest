@@ -41,37 +41,6 @@
                                     <rect key="frame" x="87" y="401" width="200" height="60"/>
                                 </variation>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eWB-CO-HXd">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="34" id="eOT-Cs-bqN">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eOT-Cs-bqN" id="zGQ-cV-22r">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="35" id="HNt-fR-SAh">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HNt-fR-SAh" id="nyf-hD-EUA">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="36" id="Vsl-pq-yOh">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vsl-pq-yOh" id="erp-AR-r4X">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="6" y="474" width="240" height="179"/>
-                                </variation>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttv-VY-eha">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="Button Reload.png"/>
@@ -82,6 +51,43 @@
                                     <action selector="button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="abl-8y-mMV"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eWB-CO-HXd">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell1" textLabel="A3k-j9-zso" imageView="Zwz-Hu-1Io" style="IBUITableViewCellStyleDefault" id="eOT-Cs-bqN">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eOT-Cs-bqN" id="zGQ-cV-22r">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" tag="101" contentMode="left" text="London" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A3k-j9-zso">
+                                                    <rect key="frame" x="74" y="0.0" width="151" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="102" contentMode="scaleToFill" image="cloudy4.png" id="Zwz-Hu-1Io">
+                                                    <rect key="frame" x="15" y="0.0" width="44" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="6" y="474" width="240" height="179"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="nRp-Z5-tXS"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.27496415376663208" green="0.91765516996383667" blue="0.76718723773956299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <variation key="default">
@@ -89,8 +95,8 @@
                                 <exclude reference="NDG-k7-zbd"/>
                                 <exclude reference="FU1-YG-cox"/>
                                 <exclude reference="QjJ-8X-8U0"/>
-                                <exclude reference="eWB-CO-HXd"/>
                                 <exclude reference="Ttv-VY-eha"/>
+                                <exclude reference="eWB-CO-HXd"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -98,8 +104,8 @@
                                 <include reference="NDG-k7-zbd"/>
                                 <include reference="FU1-YG-cox"/>
                                 <include reference="QjJ-8X-8U0"/>
-                                <include reference="eWB-CO-HXd"/>
                                 <include reference="Ttv-VY-eha"/>
+                                <include reference="eWB-CO-HXd"/>
                             </mask>
                         </variation>
                     </view>
@@ -108,6 +114,7 @@
                     <connections>
                         <outlet property="didian" destination="FU1-YG-cox" id="dnh-VV-WRf"/>
                         <outlet property="icon" destination="NDG-k7-zbd" id="lwV-s0-obN"/>
+                        <outlet property="tabelView" destination="eWB-CO-HXd" id="sq7-TD-bPy"/>
                         <outlet property="wendu" destination="QjJ-8X-8U0" id="3jb-I0-R37"/>
                     </connections>
                 </viewController>
@@ -118,6 +125,7 @@
     </scenes>
     <resources>
         <image name="Button Reload.png" width="64" height="64"/>
+        <image name="cloudy4.png" width="128" height="128"/>
         <image name="sunny.png" width="128" height="128"/>
     </resources>
 </document>
