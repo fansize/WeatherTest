@@ -18,6 +18,7 @@
 		E7F1A5101CEC8A9000EA194F /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F1A50F1CEC8A9000EA194F /* TodoModel.swift */; };
 		E7FDB8451CED9B590053C439 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDB8441CED9B590053C439 /* CityListViewController.swift */; };
 		E7FDB8471CEDC04B0053C439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7FDB8461CEDC04B0053C439 /* Assets.xcassets */; };
+		E7FDB8491CEDC45B0053C439 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDB8481CEDC45B0053C439 /* NewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E7F1A50F1CEC8A9000EA194F /* TodoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		E7FDB8441CED9B590053C439 /* CityListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		E7FDB8461CEDC04B0053C439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E7FDB8481CEDC45B0053C439 /* NewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		F2CE87C861EA41450A70E035 /* libPods-WeatherTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 				E755D7931CE828CB00DC7975 /* AppDelegate.swift */,
 				E755D7951CE828CB00DC7975 /* ViewController.swift */,
 				E7FDB8441CED9B590053C439 /* CityListViewController.swift */,
+				E7FDB8481CEDC45B0053C439 /* NewViewController.swift */,
 				E7F1A50D1CEC59ED00EA194F /* CityList.swift */,
 				E7F1A50F1CEC8A9000EA194F /* TodoModel.swift */,
 				E755D80D1CE8490800DC7975 /* Swift-Weather.h */,
@@ -346,6 +349,7 @@
 				E755D7961CE828CB00DC7975 /* ViewController.swift in Sources */,
 				E7F1A5101CEC8A9000EA194F /* TodoModel.swift in Sources */,
 				E7F1A50E1CEC59ED00EA194F /* CityList.swift in Sources */,
+				E7FDB8491CEDC45B0053C439 /* NewViewController.swift in Sources */,
 				E7FDB8451CED9B590053C439 /* CityListViewController.swift in Sources */,
 				E755D7941CE828CB00DC7975 /* AppDelegate.swift in Sources */,
 			);

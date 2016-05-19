@@ -102,12 +102,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         let location:CLLocation = locations[locations.count-1]
         if (location.horizontalAccuracy>0) {
             
+            print("目前本地位置信息为：")
             print(location.coordinate.latitude)
             print(location.coordinate.longitude)
             
             updateWeatherInfo(location.coordinate.latitude, longitude:location.coordinate.longitude)
             
-            locationManager.stopUpdatingLocation()
+            //locationManager.stopUpdatingLocation()
         }
         
     }
@@ -122,11 +123,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         
         let url = "http://api.openweathermap.org/data/2.5/weather?"
         //新的openweathermap.com的api调用除了传入参数还要求传入用户的APIKEY
-        
         let params = ["lat":latitude, "lon":longitude, "APPID":"cc2adc1945cb76a89ce82219011f2472"]
- 
         
-        
+
         // 定义请求成功和失败的闭包
         let success = { (dataTask: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             
@@ -166,12 +165,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         let cityName = jsonResult["name"] as! String
         self.didian.text = cityName
         
-        var condition = (jsonResult["weather"] as! NSArray)[0]["id"] as! Int
-        var sunrise = jsonResult["sys"]?["sunrise"] as! Double
-        var sunset = jsonResult["sys"]?["sunset"] as! Double
+        let condition = (jsonResult["weather"] as! NSArray)[0]["id"] as! Int
+        let sunrise = jsonResult["sys"]?["sunrise"] as! Double
+        let sunset = jsonResult["sys"]?["sunset"] as! Double
 
         var nightTime = false
-        var now = NSDate().timeIntervalSince1970
+        let now = NSDate().timeIntervalSince1970
         if(now<sunrise || now>sunset) {
             nightTime = true
             self.updateIcon(condition, nightTime: nightTime)

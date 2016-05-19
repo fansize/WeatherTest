@@ -193,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="2846.25" y="267.5"/>
         </scene>
-        <!--View Controller-->
+        <!--New View Controller-->
         <scene sceneID="opN-rA-JDy">
             <objects>
-                <viewController id="PPP-MX-weD" sceneMemberID="viewController">
+                <viewController id="PPP-MX-weD" customClass="NewViewController" customModule="WeatherTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Aqj-dy-0sy"/>
                         <viewControllerLayoutGuide type="bottom" id="R0T-K4-h6Z"/>
@@ -211,27 +211,31 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="37" y="142" width="60" height="60"/>
                                 </variation>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCX-8Y-gpQ">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button" image="branch"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="117" y="142" width="60" height="60"/>
-                                </variation>
+                                <connections>
+                                    <action selector="childButton:" destination="PPP-MX-weD" eventType="touchUpInside" id="vZ2-Rl-kpb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quj-Xy-8X3">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Button" image="file"/>
+                                <state key="selected" image="file-seleced"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="197" y="142" width="60" height="60"/>
                                 </variation>
+                                <connections>
+                                    <action selector="fileButton:" destination="PPP-MX-weD" eventType="touchUpInside" id="Mz0-ga-0TH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iG-uw-Eeo">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Button" image="cafe"/>
+                                <state key="selected" image="cafe-selected"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="277" y="142" width="60" height="60"/>
                                 </variation>
+                                <connections>
+                                    <action selector="cafeButton:" destination="PPP-MX-weD" eventType="touchUpInside" id="k9C-le-txM"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYc-xN-asn">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -258,32 +262,50 @@
                                     <rect key="frame" x="151" y="355" width="72" height="39"/>
                                 </variation>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCX-8Y-gpQ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button" image="branch"/>
+                                <state key="selected" image="branch-seleced"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="117" y="142" width="60" height="60"/>
+                                </variation>
+                                <connections>
+                                    <action selector="branchButton:" destination="PPP-MX-weD" eventType="touchUpInside" id="Qta-Eg-xSn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="9Dy-Ht-OgT"/>
-                                <exclude reference="SCX-8Y-gpQ"/>
                                 <exclude reference="quj-Xy-8X3"/>
                                 <exclude reference="6iG-uw-Eeo"/>
                                 <exclude reference="RYc-xN-asn"/>
                                 <exclude reference="BVj-QQ-FiC"/>
                                 <exclude reference="ZhS-y3-Kj6"/>
+                                <exclude reference="SCX-8Y-gpQ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="9Dy-Ht-OgT"/>
-                                <include reference="SCX-8Y-gpQ"/>
                                 <include reference="quj-Xy-8X3"/>
                                 <include reference="6iG-uw-Eeo"/>
                                 <include reference="RYc-xN-asn"/>
                                 <include reference="BVj-QQ-FiC"/>
                                 <include reference="ZhS-y3-Kj6"/>
+                                <include reference="SCX-8Y-gpQ"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Xbe-Ct-dot"/>
+                    <connections>
+                        <outlet property="branchButton" destination="SCX-8Y-gpQ" id="rME-Yc-Ztp"/>
+                        <outlet property="cafeButton" destination="6iG-uw-Eeo" id="q02-zx-iEP"/>
+                        <outlet property="childButton" destination="9Dy-Ht-OgT" id="kPG-Mi-Ed7"/>
+                        <outlet property="fileButton" destination="quj-Xy-8X3" id="jio-sm-vgL"/>
+                        <outlet property="textItem" destination="BVj-QQ-FiC" id="Dlv-bI-nw9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xee-zL-OTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -311,11 +333,14 @@
     <resources>
         <image name="Button Reload" width="64" height="64"/>
         <image name="branch" width="60" height="60"/>
+        <image name="branch-seleced" width="60" height="60"/>
         <image name="cafe" width="60" height="60"/>
+        <image name="cafe-selected" width="60" height="60"/>
         <image name="child" width="60" height="60"/>
         <image name="child-seleced" width="60" height="60"/>
         <image name="cloudy4" width="128" height="128"/>
         <image name="file" width="60" height="60"/>
+        <image name="file-seleced" width="60" height="60"/>
         <image name="queren" width="70" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>
