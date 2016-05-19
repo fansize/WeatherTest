@@ -35,22 +35,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         locationManager.startUpdatingLocation()
         locationManager.requestAlwaysAuthorization()  //很关键的一句，有了它才提示是否允许设备定位，之前一直无法拉起位置服务；原因暂未知
         todos = [TodoModel(id: "1", image: "cloudy1_night.png", text: "1、去游乐场", date:    dateFromString("2016-11-21")!),
-                 TodoModel(id: "1", image: "cloudy1.png", text: "1、去玩", date: dateFromString("2016-11-21")!),
-                 TodoModel(id: "1", image: "cloudy2_night.png", text: "1、去打电话", date: dateFromString("2016-11-21")!),
-                 TodoModel(id: "1", image: "cloudy2.png", text: "1、去游泳", date: dateFromString("2016-11-21")!)]
+                 TodoModel(id: "1", image: "cloudy1.png", text: "2、去玩", date: dateFromString("2016-11-21")!),
+                 TodoModel(id: "1", image: "cloudy2_night.png", text: "3、去打电话", date: dateFromString("2016-11-21")!),
+                 TodoModel(id: "1", image: "cloudy2.png", text: "4、去游泳", date: dateFromString("2016-11-21")!)]
         
-        print(todos)
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
     
     
     //继承UITableViewDataSource协议必须实现的两个方法
     //dequeueReusableCellWithIdentifier("35")，使用可重用的cell，其中参数str为重用cell的id，在storyboard中查看即可
+    
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         //**返回到cell列数必须要与创建内容库应该有的列数一致，否则报错 PS：理解上应该是可能会有空行
         return todos.count;
     }
-    
+
     
     //cell里内容的更新主要就在这个方法里完成，应该是每新创建一个cell就会回调一次这个方法
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -65,11 +74,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         
         return cell
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //实现cell删除从UITableViewDelegate继承的方法
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            todos.removeAtIndex(indexPath.row)
+            //直接重新刷新tableview使用reload()就可以了，不过过度很生硬
+            //self.tabelView.reloadData()
+            self.tabelView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
     }
+ 
+    
+    
+
     
     func dateFromString(dateStr: String) -> NSDate? {
         let formatter = NSDateFormatter()
@@ -188,11 +206,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         }
     }
     
-    //加了测试按钮，一些没写对的功能先用按钮的替代
     
+    
+    
+    //加了测试按钮，一些没写对的功能先用按钮的替代
     @IBAction func button(sender: AnyObject) {
         
-        print("地址改变")
+        //print("地址改变")
         //tabelviewcell.text = "Hello"
         //locationManager.startUpdatingLocation()
         //var cl = CityList(name: "NewYork")
@@ -200,9 +220,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
       
     }
 
-//    @IBOutlet weak var tabel: UITableViewCell!
-//    @IBOutlet weak var tabelview: UIView!
-//    @IBOutlet weak var tabelviewcell: UILabel!
     
 }
 
